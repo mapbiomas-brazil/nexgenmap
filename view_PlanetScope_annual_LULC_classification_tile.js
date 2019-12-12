@@ -3,16 +3,16 @@
 //------------------------------------------------------------------
 
 var gridNames = [
-//	    ['SB-21-Y-C', 'rf-2_SF3'], //Apui
-	    ['SA-23-Y-C', 'rf-2_SF3'], //Paragominas
+	    ['SB-21-Y-C', 'rf-2_SF3'], //Apui
+//	    ['SA-23-Y-C', 'rf-2_SF3'], //Paragominas
 //	    ['SH-21-Z-B', 'rf-2_SF3'], //São Gabriel
 //	    ['SC-21-Z-C', 'rf-3_SF'],  //Sinop 
-//	    ['SD-23-Y-C', 'rf-3_SF3'], //Brasília 
-//	    ['SF-23-Y-C', 'rf-2_SF3'], //São Paulo
-//	    ['SF-23-X-B', 'rf-2_SF3'], //Rio Doce
-//	    ['SH-22-Y-D', 'rf-2_SF3'], //Pelotas 
 //	    ['SF-23-Z-B', 'rf-3_SF'],  //Rio de Janeio 
 //	    ['SD-22-Z-C', 'rf-2_SF3'], //Rio Vermelho
+//	    ['SD-23-Y-C', 'rf-3_SF3'], //Brasília 
+//	    ['SF-23-Y-C', 'rf-2_SF3'], //São Paulo
+//	    ['SH-22-Y-D', 'rf-2_SF3'], //Pelotas 
+//	    ['SF-23-X-B', 'rf-2_SF3'], //Rio Doce
 //	    ['SB-24-Z-D', 'rf-2_SF3'], //Caatinga 2
 //	    ['SC-24-V-D', 'rf-2_SF3'], //Caatinga 1 
 //	    ['SE-21-Z-A', 'rf-2_SF3'], //Pantanal 
@@ -27,18 +27,18 @@ var subGridsFc = ee.FeatureCollection(subGridsAsset);
 var assetCollec3_BR = 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1';
 
 var classesIn = [
-    3, 4, 5,
-    9, 11, 12, 
-    15, 18, 
-    24, 29, 26, 33
+    2, 3, 4, 5,
+    9, 10, 11, 12, 13,
+    15, 18, 19, 20, 21, 22,
+    23, 24, 29, 30, 26, 33
 ];
 
 //legenda saida
 var classesOut = [
-    3, 4, 5,
-    9, 11, 12, 
-    15, 18, 
-    24, 29, 26, 26
+    3, 3, 4, 5,
+    9, 12, 11, 12, 13,
+    15, 18, 18, 18, 15, 22,
+    23, 24, 29, 30, 26, 26
 ];
 
 var classes2 =    [3,        4,         5,          9,                 11,         12,           15,        18,             24,       26,      29     ];
@@ -100,6 +100,6 @@ gridNames.forEach(
 		});
 
 		var errorMatrix_abs = sampled_pointsan.errorMatrix('class', 'remapped', classes2);
-		print(errorMatrix_abs.accuracy().format('%.3f'))
+		print(gridName[0], errorMatrix_abs.accuracy().format('%.2f'))
 	}
 );
