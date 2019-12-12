@@ -12,8 +12,8 @@ var gridNames = [
     //    'SD-23-Y-C', //Brasília - Cerrado 1
     //    'SE-21-Z-A', //Pantanal
     //    'SF-23-X-B', //Rio Doce
-    'SF-23-Y-C', //São Paulo
-    //    'SF-23-Z-B', //Rio de Janeio
+    //    'SF-23-Y-C', //São Paulo
+        'SF-23-Z-B', //Rio de Janeio
     //    'SH-21-Z-B', //São Gabriel
     //    'SH-22-Y-D', //Pelotas
     //    'SC-24-V-D', //Caatinga 1
@@ -69,8 +69,8 @@ var classesOut = [
 ];
 
 // classes and classnames
-var classes = [3, 4, 5, 9, 11, 12, 15, 18, 22, 24, 26, 29];
-var classNames = ['Forest', 'Savanna', 'Mangrove', 'Planted Forest', 'Wetlands', 'Grassland', 'Pasture', 'Agriculture', 'Beach', 'Urban', 'Water', 'Rocks'];
+var classes = [3, 4, 5, 9, 11, 12, 15, 18, 24, 26, 29];
+var classNames = ['Forest', 'Savanna', 'Mangrove', 'Planted Forest', 'Wetlands', 'Grassland', 'Pasture', 'Agriculture', 'Urban', 'Water', 'Rocks'];
 
 
 // Create Symbol palets
@@ -151,7 +151,7 @@ gridNames.forEach(
                 
                 var errorMatrix_abs = sampled_points.errorMatrix('class', 'classification_' + month, classes);
                 
-                print(month, errorMatrix_abs.accuracy())
+                print(month, errorMatrix_abs.accuracy().format('%.2f'))
 
             }
         )
